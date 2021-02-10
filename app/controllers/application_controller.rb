@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   def authenticate
-    if !signed_in
+    unless signed_in
       redirect_to new_session_path
     end
   end
@@ -11,5 +11,13 @@ class ApplicationController < ActionController::Base
 
   def current_email
     session[:current_email]
+  end
+
+  def sign_in_as(email)
+    session[:current_email] = email
+  end
+
+  def current_user
+    User.new(current_email)
   end
 end
