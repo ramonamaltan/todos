@@ -5,8 +5,8 @@ feature "User creates todo" do
     sign_in
 
     create_todo("Laundry")
-    
+
     expect(page).to have_current_path(root_path)
-    expect(page).to have_css '.todos li', text: 'Laundry'
+    expect(page).to display_todo("Laundry")
   end
 end

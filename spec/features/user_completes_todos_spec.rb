@@ -7,6 +7,6 @@ feature "User can mark todo as complete" do
     create_todo("Laundry")
 
     click_on 'Mark as complete'
-    expect(page).to have_css '.todos li.completed', text: 'Laundry'
+    expect(page).to display_completed_todo("Laundry")
   end
 end
