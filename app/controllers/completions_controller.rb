@@ -4,6 +4,11 @@ class CompletionsController < ApplicationController
     redirect_to root_path
   end
 
+  def destroy
+    todo.update_column :completed_at, nil
+    redirect_to root_path
+  end
+
   private
 
   def todo
